@@ -1,0 +1,188 @@
+:root{
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --background-color: #ffffff;
+    --text-color: #222222;
+    --hover-scale: 1.05;
+    --transition-speed: 0.3s;
+    --filter-active-background: #4a90e2;
+    --filter-active-color: white;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+header{
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+}
+
+.filters{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 1.2rem 0 2rem 0;
+}
+
+.filter-btn{
+    background: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    user-select: none;
+}
+
+.filter-btn:hover, .filter-btn.active{
+    background: var(--filter-active-background);
+    color: var(--filter-active-color);
+    border-color: var(--filter-active-background);
+}
+
+.gallery{
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: 
+        repeat(auto-fit, minmax(180px, 1fr)
+    );
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.gallery-item{
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgb(0 0 0 0.12);
+    background: white;
+    transition: 
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease
+    ;
+}
+
+.gallery-item:hover{
+    transform: scale(var(--hover-scale));
+    box-shadow: 0 10px 25px rgb(0 0 0 0.2);
+}
+
+.gallery-item img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: filter var(--transition-speed) ease;
+}
+
+/**Lightbox style**/
+#lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(30, 30, 30, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 1000;
+}
+
+#lightbox.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#lightbox img{
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+#lightbox .close-btn, #lightbox .nav-btn{
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    top: 20px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#lightbox .close-btn:hover, #lightbox .nav-btn:hover{
+    background: var(--primary-color);
+    color: white;
+}
+
+#lightbox .close-btn{
+    right: 20px;
+}
+
+#lightbox .nav-btn.prev{
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#lightbox .nav-btn.next{
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/**Responsive tweaks**/
+@media (max-width:600px) {
+    .gallery-item img {
+        height: 230px;
+    }
+}
+header {
+    font-size: 1.4rem;
+}
+}
+/** image filters**/
+.gallery-item img.grayscale {
+    filter: grayscale(100%);
+}
+
+.gallery-item img.sepia {
+    filter: sepia(60%);
+ 
+}
+.gallery-item img.blur{
+  filter: blur(2px);
+}
+.gallery-item img.none {
+    filter: none;
+}

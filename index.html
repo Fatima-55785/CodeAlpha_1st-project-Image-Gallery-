@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Stunning Image Gallery </h1>
+    </header>
+
+    <div class="filters" role="group" aria-label="Image category filters">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="nature" aria-pressed="false">Nature</button>
+        <button class="filter-btn" data-filter="animals" aria-pressed="false">Animals</button>
+        <button class="filter-btn" data-filter="birds" aria-pressed="false">birds</button>
+        <button class="filter-btn" data-filter="fruits" aria-pressed="false">fruits</button>
+    </div>
+    <main class="gallery" aria-live="polite">
+        <!--Gallery items with categories-->
+        <!--1st category-->
+        <div class="gallery-item" data-category="nature">
+            <img src="nature.jpg" alt="beautiful nature">
+            </div>
+            <div class="gallery-item" data-category="animals">
+                <img src="Alpaca (animal).jpg" alt="Alpaca">
+            </div>
+            <div class="gallery-item" data-category="birds">
+                  <img src="eagle(bird).jpg" alt="eagle">            
+            </div>
+            <div class="gallery-item" data-category="fruits">
+                <img src="grape fruit (fruit).jpg" alt="grape fruit">
+            </div>
+            <!--2nd category-->
+            <div class="gallery-item" data-category="nature">
+                <img src="forest(nature).jpg" alt="forest">
+                </div>
+                <div class="gallery-item" data-category="animals">
+                    <img src="cat (animal).jpg" alt="cat">
+                </div>
+                <div class="gallery-item" data-category="birds">
+                    <img src="peacock(bird).jpg" alt="peacock">
+                </div>
+                <div class="gallery-item" data-category="fruits">
+                    <img src="snake fruit(fruit).jpg" alt="snake fruit">
+                </div>
+                <!--3rd category-->
+                <div class="gallery-item" data-category="nature">
+                    <img src="scenery(nature).jpg" alt="scenery">
+                    </div>
+                    <div class="gallery-item" data-category="animals">
+                        <img src="dog (animal).jpg" alt="dog">
+                    </div>
+                    <div class="gallery-item" data-category="birds">
+                        <img src="nightingale(bird).jpg" alt="bird">
+                    </div>
+                    <div class="gallery-item" data-category="fruits">
+                        <img src="persimmon(fruit).jpg" alt="persimmon">
+                    </div>
+                    <!--4th category-->
+                    <div class="gallery-item" data-category="nature">
+                        <img src="mountains(nature).jpg" alt="mountains">
+                        </div>
+                        <div class="gallery-item" data-category="animals">
+                            <img src="horse (animal).jpg" alt="horse">
+                        </div>
+                        <div class="gallery-item" data-category="birds">
+                            <img src="white peacock(bird).jpg" alt="eagle">
+                        </div>
+                        <div class="gallery-item" data-category="fruits">
+                            <img src="starfruit(fruit).jpg" alt="starfruit">
+                        </div>
+                        <!--5th category-->
+                        <div class="gallery-item" data-category="nature">
+                            <img src="landscapes stock(nature).jpg" alt="landscapes">
+                            </div>
+                            <div class="gallery-item" data-category="animals">
+                                <img src="panda (animal).jpg" alt="panda">
+                            </div>
+                            <div class="gallery-item" data-category="birds">
+                                <img src="Siberian Robin(bird).jpg" alt="Robin">
+                            </div>
+                            <div class="gallery-item" data-category="fruits">
+                                <img src="red dragon(fruit).jpg" alt="red dragon">
+                            </div>
+    </main>
+
+    <!--Lightbox modal-->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="close-btn" aria-label="Close lightbox"> &times; </button>
+        <button class="nav-btn prev" aria-label="Previous image"> &#10094; </button>
+        <img src="" alt="">
+        <button class="nav-btn next" aria-label="Next image"> &#10095; </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
